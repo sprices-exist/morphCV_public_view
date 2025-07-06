@@ -1,0 +1,175 @@
+\documentclass[paper=a4,fontsize=11pt]{scrartcl} % KOMA-article class
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc} % Use utf8 for modern LaTeX compatibility
+\usepackage[protrusion=true,expansion=true]{microtype}
+\usepackage{amsmath,amsfonts,amsthm}     % Math packages
+\usepackage{graphicx}                    % Enable pdflatex graphics inclusion
+\usepackage[svgnames]{xcolor}            % Use named colors (svgnames)
+\usepackage{geometry}                    % For setting page margins
+\geometry{a4paper, margin=1in}           % Standard 1-inch margins
+\usepackage{url}                         % For typesetting URLs
+\usepackage{enumitem}                    % For customizing lists (e.g., itemize)
+
+\usepackage{sectsty}                     % Package for customizing section fonts
+
+% Section font settings: Use Helvetica-like bold font with a rule below
+\sectionfont{%
+\usefont{OT1}{phv}{b}{n}%		% Using Helvetica-like font (sans-serif bold)
+\sectionrule{0pt}{0pt}{-5pt}{3pt}} % Rule below section title with specific spacing
+
+%%% Custom Macros
+%%% ------------------------------------------------------------
+\newlength{\spacebox}
+\settowidth{\spacebox}{8888888888} % Define a fixed width for alignment purposes (used in PersonalEntry/SkillsEntry)
+\newcommand{\sepspace}{\vspace*{1em}} % Macro for vertical spacing between sections/entries
+
+% Macro for the candidate's name at the top
+\newcommand{\MyName}[1]{
+\Huge \usefont{OT1}{phv}{b}{n} \hfill #1 % Name in large, bold, Helvetica-like font, aligned right
+\par \normalsize \normalfont}
+
+% Macro for creating new sections (e.g., "Personal Details", "Skills")
+\newcommand{\NewPart}[1]{\section*{\uppercase{#1}}} % Creates an unnumbered section title in uppercase
+
+% Macro for personal details (e.g., Address, Phone, Email)
+\newcommand{\PersonalEntry}[2]{
+\noindent\hangindent=2em\hangafter=0 % Indentation settings for hanging paragraph
+\parbox{\spacebox}{        % Box for the label (e.g., "Address") with fixed width
+\textit{#1}}		       % Label text (italicized)
+\hspace{1.5em} #2 \par}    % Value text, aligned after the label box, followed by a paragraph break
+
+% Macro for skills entries, similar structure to PersonalEntry
+\newcommand{\SkillsEntry}[2]{
+\noindent\hangindent=2em\hangafter=0 % Indentation settings
+\parbox{\spacebox}{        % Box for the skill category (e.g., "Languages") with fixed width
+\textit{#1}}			   % Skill category text (italicized)
+\hspace{1.5em} #2 \par}    % List of skills in that category
+
+% Macro for education entries
+\newcommand{\EducationEntry}[4]{
+\noindent \textbf{#1} \hfill      % Degree/Program name (bold)
+\colorbox{Black}{%               % Background color box for duration
+\parbox{6em}{%                   % Fixed width for duration box
+\centering\color{White}#2}} \par  % Duration text (centered, white color)
+\noindent \textit{#3} \par        % Institution name (italicized)
+\noindent\hangindent=2em\hangafter=0 \small #4 % Description or key modules (indented, small font)
+\normalsize \par} % Reset font size
+
+% Macro for work experience and projects entries
+\newcommand{\WorkEntry}[4]{
+\noindent \textbf{#1} \hfill      % Job Title / Project Name (bold)
+\colorbox{Black}{\color{White}#2} \par % Duration / Year (in colored box)
+\noindent \textit{#3} \par              % Company / Technologies used (italicized)
+\noindent\hangindent=2em\hangafter=0 \small #4 % Description of responsibilities/achievements (indented, small font)
+\normalsize \par} % Reset font size
+
+%%% Begin Document
+%%% ------------------------------------------------------------
+\begin{document}
+
+% Optional: Placeholder for a photo if needed (commented out as per template)
+%\begin{wrapfigure}{l}{0.5\textwidth}
+%	\vspace*{-2em}
+%		\includegraphics[width=0.15\textwidth]{photo}
+%\end{wrapfigure}
+
+% Candidate's Name
+\MyName{John Doe}
+
+\sepspace % Add vertical space after the name
+
+%%% Personal details section
+%%% ------------------------------------------------------------
+\NewPart{Personal Details}{}
+% Using placeholder information as specifics were not provided in the user description
+\PersonalEntry{Address}{Placeholder Address, City}
+\PersonalEntry{Phone}{+48123456789}
+\PersonalEntry{Email}{\url{abc@example.com}} % Placeholder email
+\PersonalEntry{LinkedIn}{\url{linkedin.com/in/example}} % Assuming standard LinkedIn URL format
+\PersonalEntry{GitHub}{\url{github.com/example}} % Assuming standard GitHub URL format
+
+%%% Summary section tailored to the job description requirements
+%%% ------------------------------------------------------------
+\NewPart{Summary}{}
+\noindent\hangindent=2em\hangafter=0 % Apply indentation consistent with other personal entries
+Recent BSc Computer Science graduate with a strong foundation in Python, SQL, and data analysis. Seeking a challenging role to support web-based applications and streamline data workflows using Python and related technologies. Possesses practical experience in software development, process automation, and web technologies gained through internships and personal projects. A highly motivated and analytical individual eager to contribute to digital product development and quickly learn new frameworks like Django.
+\normalsize \par % Ensure font size is reset after the summary block
+\sepspace
+
+
+
+%%% Professional Experience section, highlighting relevant roles and achievements
+%%% ------------------------------------------------------------
+\NewPart{Professional Experience}{}
+
+% Internship Experience: Most relevant to software development support roles
+\WorkEntry{Software Development Intern}{2022}{Balaji Distributors}{
+\begin{itemize}[leftmargin=*,labelsep=0.5em]
+    \item Optimized existing IT processes within a pharmaceutical distribution business, improving operational efficiency.
+    \item Developed an Inventory Management System using React, reducing monthly workload by up to 30 hours through efficient stock tracking.
+    \item Created an Automated Email Response System (Python) for online price queries, projected to increase monthly prospects by 20%.
+    \item Built a responsive website using TailwindCSS, integrated with Google Search Console to identify high-conversion keywords, projected to reduce ad spend by 15%.
+    \item Developed a Java CLI Applet to automate routine tasks including data querying, CSV generation, compression, and SFTP uploads, reducing monthly workload by up to 20 hours.
+\end{itemize}
+}
+\sepspace % Add vertical spacing between entries
+
+% Final Year Dissertation Project: Showcases technical depth and Python proficiency
+\WorkEntry{Final Year Dissertation Project}{2023}{Kielce University of Technology}{
+\begin{itemize}[leftmargin=*,labelsep=0.5em]
+    \item Independently designed and developed a Reinforcement Learning model for a Snake game using Python and PyTorch.
+    \item Implemented AI training cycles, achieving performance surpassing the median human score after 125-130 iterations.
+    \item Documented the methodology and results in a comprehensive thesis, supervised by a university professor.
+\end{itemize}
+}
+
+%%% Skills section, categorized for clarity and relevance to the job
+%%% IMPORTANT Use short descriptors for SkillsEntry, as shown below like technical, tools, concepts and so on
+%%% ------------------------------------------------------------
+\NewPart{Skills}{}
+\SkillsEntry{Technical}{Python, SQL, Java, Git, HTML, CSS, JavaScript (Basic Knowledge)}
+% Basic web technologies inferred from internship project (React, TailwindCSS) to match job requirements
+\SkillsEntry{Libraries}{NumPy, Pandas, Sci-kit Learn, PyTorch, TensorFlow, Matplotlib, BeautifulSoup4, React, TailwindCSS}
+\SkillsEntry{Databases}{MySQL, Oracle SQL}
+\SkillsEntry{Tools}{Git, GitHub} % GitHub is explicitly mentioned in job requirements
+\SkillsEntry{Concepts}{Data Analysis \& Visualization, Machine Learning Techniques, Object-Oriented Programming, Version Control, Software Development Lifecycle}
+
+%%% Education section detailing academic background
+%%% ------------------------------------------------------------
+\NewPart{Education}{}
+
+\EducationEntry{BSc Computer Science}{Oct 2019 -- Mar 2023}{Kielce University of Technology}{
+Grade: 4.29/5.
+Key Modules: Python Programming 1 \& 2, Big Data \& Analytics, Intelligent Systems 1 \& 2, Speech and Image Recognition Systems.
+}
+\sepspace
+
+%%% Projects section highlighting personal work and demonstrating practical skills
+%%% ------------------------------------------------------------
+\NewPart{Projects}{}
+
+% Project 1: Non-Linear Data Classifier - demonstrates ML and visualization skills
+\WorkEntry{Classifier for Non-Linear Data}{2023}{Python, TensorFlow, Matplotlib, Sci-kit Learn, Gradio}{
+Developed a project inspired by TensorFlow Playground, featuring interactive visualizations of neural network structures and neuron outputs to aid understanding of model behavior.
+}
+\sepspace
+
+% Project 2: Retinal Disease Classification - shows accuracy and application of ML in imaging
+\WorkEntry{Retinal Disease Classification}{2023}{Python, FastAI}{
+Built a model to identify retinal diseases from OCT scans, achieving 96\% accuracy. Focused on applying deep learning techniques to medical imaging analysis.
+}
+\sepspace
+
+% Project 3: S&P 500 Stock Analysis - demonstrates data analysis and visualization skills
+\WorkEntry{S\&P 500 Stock Analysis}{2021}{Python, NumPy, Pandas, Matplotlib, Seaborn, Plotly}{
+Performed comprehensive analysis and visualization of S\&P 500 stock data, identifying trends and patterns using data analysis libraries.
+}
+\sepspace
+
+% Project 4: Bookmark Recovery Application - shows practical scripting and impact
+\WorkEntry{Bookmark Recovery Application}{2019}{Python, BeautifulSoup4, cxFreeze}{
+Developed a utility application to recover lost bookmarks after a website outage, which gained over 5000 downloads. Demonstrated practical Python scripting and web scraping skills.
+}
+
+\end{document}

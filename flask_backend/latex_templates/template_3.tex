@@ -1,0 +1,139 @@
+\documentclass[10pt,letterpaper]{article}
+
+% Packages
+\usepackage[letterpaper,margin=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{mdwlist}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{tgpagella}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+
+% Color definitions
+\definecolor{accent}{RGB}{200,50,50}
+\definecolor{heading}{RGB}{50,50,50}
+\definecolor{subheading}{RGB}{100,100,100}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+}
+
+% Disable page numbering
+\pagestyle{empty}
+
+% Section formatting
+\titleformat{\section}{\large\bfseries\color{heading}}{}{0em}{}[\color{accent}\titlerule]
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Custom commands
+\newcommand{\resheading}[1]{{\large\color{heading}\textbf{#1}}\vspace{2pt}}
+\newcommand{\ressubheading}[4]{
+    \begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+        \textbf{#1} & #2 \\
+        \textit{#3} & \textit{#4} \\
+    \end{tabular*}\vspace{-6pt}
+}
+
+\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\resliststart}{\begin{itemize}[leftmargin=*,noitemsep,topsep=0pt]}
+\newcommand{\reslistend}{\end{itemize}}
+
+\begin{document}
+
+% Header Section
+\begin{center}
+    {\Huge\bfseries\color{heading}[FIRST_NAME] [LAST_NAME]}\\
+    \vspace{5pt}
+    {\Large\color{subheading}[JOB_TITLE]}\\
+    \vspace{8pt}
+    [EMAIL] $\bullet$ [PHONE] $\bullet$ [LOCATION]\\
+    \href{https://linkedin.com/in/[LINKEDIN]}{LinkedIn: [LINKEDIN]} $\bullet$ 
+    \href{https://github.com/[GITHUB]}{GitHub: [GITHUB]}
+\end{center}
+
+\vspace{10pt}
+
+% Objective/Summary
+\section{Professional Summary}
+[PROFESSIONAL_SUMMARY]
+
+% Experience
+\section{Professional Experience}
+[EXPERIENCE_ENTRIES]
+% Example format:
+% \ressubheading{Senior Software Engineer}{Jan 2023 - Present}{TechCorp Inc.}{San Francisco, CA}
+% \resliststart
+% \resitem{Architected and developed scalable microservices using Java Spring Boot and Docker}
+% \resitem{Led cross-functional team of 8 engineers to deliver major product features}
+% \resitem{Improved system performance by 35\% through database optimization and caching}
+% \resitem{Mentored 3 junior developers and established best practices for code reviews}
+% \reslistend
+
+% Education
+\section{Education}
+[EDUCATION_ENTRIES]
+% Example format:
+% \ressubheading{Master of Science in Computer Science}{2020 - 2022}{Stanford University}{Stanford, CA}
+% \resliststart
+% \resitem{GPA: 3.8/4.0, Dean's List for 3 consecutive semesters}
+% \resitem{Relevant Coursework: Advanced Algorithms, Machine Learning, Database Systems}
+% \resitem{Thesis: "Optimizing Distributed Systems for Real-time Data Processing"}
+% \reslistend
+
+% Technical Skills
+\section{Technical Skills}
+\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}l}
+    \textbf{Programming Languages:} & [PROGRAMMING_LANGUAGES] \\
+    \textbf{Frameworks \& Libraries:} & [FRAMEWORKS] \\
+    \textbf{Databases:} & [DATABASES] \\
+    \textbf{Cloud Platforms:} & [CLOUD_PLATFORMS] \\
+    \textbf{Development Tools:} & [TOOLS] \\
+    \textbf{Operating Systems:} & [OPERATING_SYSTEMS] \\
+\end{tabular*}
+
+% Projects
+\section{Notable Projects}
+[PROJECT_ENTRIES]
+% Example format:
+% \ressubheading{Real-time Analytics Dashboard}{2023}{Personal Project}{React, Python, PostgreSQL}
+% \resliststart
+% \resitem{Built comprehensive analytics platform processing 100K+ events per minute}
+% \resitem{Implemented real-time data visualization using React and D3.js}
+% \resitem{Deployed on AWS using Docker containers and Lambda functions}
+% \reslistend
+
+% Certifications and Achievements
+\section{Certifications \& Achievements}
+[CERTIFICATIONS]
+% Example format:
+% \resliststart
+% \resitem{AWS Certified Solutions Architect - Professional (2023)}
+% \resitem{Google Cloud Professional Data Engineer (2022)}
+% \resitem{Microsoft Azure Developer Associate (2022)}
+% \resitem{Top 5\% performer in annual company reviews (2022-2023)}
+% \resitem{Winner, Internal Hackathon for AI Innovation (2023)}
+% \reslistend
+
+% Publications (if applicable)
+\section{Publications \& Research}
+[PUBLICATIONS]
+% Example format:
+% \resliststart
+% \resitem{"Efficient Algorithms for Large-Scale Data Processing", IEEE Conference on Big Data, 2023}
+% \resitem{"Machine Learning Applications in Financial Technology", Journal of FinTech, Vol. 15, 2022}
+% \reslistend
+
+% Additional Information
+\section{Additional Information}
+\textbf{Languages:} English (Native), [OTHER_LANGUAGES]\\
+\textbf{Professional Memberships:} [MEMBERSHIPS]\\
+\textbf{Volunteer Work:} [VOLUNTEER_EXPERIENCE]\\
+\textbf{Interests:} [INTERESTS]
+
+\end{document}

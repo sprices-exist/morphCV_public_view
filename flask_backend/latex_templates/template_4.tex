@@ -1,0 +1,197 @@
+\documentclass[12pt,letterpaper]{article}
+
+% Packages
+\usepackage[left=0.5in,top=0.5in,right=0.5in,bottom=0.5in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontawesome}
+\usepackage{hyperref}
+\usepackage{tabularx}
+\usepackage{array}
+
+% Modern color scheme
+\definecolor{primaryblue}{RGB}{52,152,219}
+\definecolor{darkgray}{RGB}{44,62,80}
+\definecolor{lightgray}{RGB}{149,165,166}
+\definecolor{accent}{RGB}{231,76,60}
+
+% Hyperlink setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    urlcolor=primaryblue,
+    pdftitle=[FIRST_NAME] [LAST_NAME] Resume
+}
+
+% Remove page numbering
+\pagenumbering{gobble}
+
+% Section formatting
+\titleformat{\section}
+{\color{primaryblue}\Large\bfseries}
+{}{0em}{}[\color{primaryblue}\titlerule[1pt]]
+\titlespacing{\section}{0pt}{8pt}{4pt}
+
+\titleformat{\subsection}
+{\color{darkgray}\large\bfseries}
+{}{0em}{}
+\titlespacing{\subsection}{0pt}{6pt}{2pt}
+
+% Custom commands
+\newcommand{\name}[2]{
+    \begin{center}
+        {\Huge\bfseries\color{darkgray}#1 #2}
+    \end{center}
+}
+
+\newcommand{\contact}[5]{
+    \begin{center}
+        \color{lightgray}
+        \faEnvelope\ #1 \quad 
+        \faPhone\ #2 \quad 
+        \faMapMarker\ #3 \quad 
+        \faLinkedin\ #4 \quad 
+        \faGithub\ #5
+    \end{center}
+    \vspace{10pt}
+}
+
+\newcommand{\jobtitle}[1]{
+    \begin{center}
+        {\Large\color{primaryblue}\textbf{#1}}
+    \end{center}
+    \vspace{5pt}
+}
+
+\newcommand{\workexp}[5]{
+    \textbf{\color{darkgray}#1} \hfill {\color{lightgray}#2}\\
+    \textit{\color{primaryblue}#3} \hfill {\color{lightgray}#4}\\
+    \vspace{2pt}
+    #5
+    \vspace{8pt}
+}
+
+\newcommand{\education}[5]{
+    \textbf{\color{darkgray}#1} \hfill {\color{lightgray}#2}\\
+    \textit{\color{primaryblue}#3} \hfill {\color{lightgray}#4}\\
+    #5
+    \vspace{8pt}
+}
+
+\newcommand{\project}[4]{
+    \textbf{\color{darkgray}#1} \hfill {\color{lightgray}#2}\\
+    \textit{\color{primaryblue}#3}\\
+    \vspace{2pt}
+    #4
+    \vspace{8pt}
+}
+
+\newcommand{\skillcategory}[2]{
+    \textbf{\color{darkgray}#1:} #2\\
+}
+
+\begin{document}
+
+% Header
+\name{[FIRST_NAME]}{[LAST_NAME]}
+\jobtitle{[JOB_TITLE]}
+\contact{[EMAIL]}{[PHONE]}{[LOCATION]}{[LINKEDIN]}{[GITHUB]}
+
+% Professional Summary
+\section{Professional Summary}
+\color{darkgray}
+[PROFESSIONAL_SUMMARY]
+
+% Core Competencies (Skills Box)
+\section{Core Competencies}
+\begin{tabularx}{\textwidth}{|X|X|}
+\hline
+\multicolumn{2}{|c|}{\textbf{\color{primaryblue}Technical Skills}} \\
+\hline
+\skillcategory{Programming}{[PROGRAMMING_LANGUAGES]} &
+\skillcategory{Frameworks}{[FRAMEWORKS]} \\
+\hline
+\skillcategory{Databases}{[DATABASES]} &
+\skillcategory{Cloud/DevOps}{[CLOUD_DEVOPS]} \\
+\hline
+\skillcategory{Tools}{[TOOLS]} &
+\skillcategory{Methodologies}{[METHODOLOGIES]} \\
+\hline
+\end{tabularx}
+
+% Professional Experience
+\section{Professional Experience}
+[EXPERIENCE_ENTRIES]
+% Example format:
+% \workexp{Senior Software Engineer}{March 2023 - Present}{InnovateTech Solutions}{San Francisco, CA}{
+% \begin{itemize}[leftmargin=15pt,noitemsep,topsep=0pt]
+% \item Spearheaded development of cloud-native applications serving 2M+ users globally
+% \item Architected microservices ecosystem using Docker, Kubernetes, and AWS services
+% \item Implemented CI/CD pipelines reducing deployment time from 2 hours to 15 minutes
+% \item Led technical interviews and mentored team of 6 junior developers
+% \item Achieved 99.9\% uptime through robust monitoring and alerting systems
+% \end{itemize}
+% }
+
+% Education
+\section{Education}
+[EDUCATION_ENTRIES]
+% Example format:
+% \education{Master of Science in Computer Science}{2020 - 2022}{Carnegie Mellon University}{Pittsburgh, PA}{
+% \textbf{GPA:} 3.9/4.0 \quad \textbf{Honors:} Magna Cum Laude\\
+% \textbf{Specialization:} Machine Learning and Artificial Intelligence\\
+% \textbf{Thesis:} "Deep Learning Approaches for Real-time Fraud Detection"
+% }
+
+% Key Projects
+\section{Key Projects \& Achievements}
+[PROJECT_ENTRIES]
+% Example format:
+% \project{AI-Powered Recommendation Engine}{2023}{Python, TensorFlow, AWS, Redis}{
+% \begin{itemize}[leftmargin=15pt,noitemsep,topsep=0pt]
+% \item Developed machine learning model improving user engagement by 45\%
+% \item Processed 10M+ data points daily using distributed computing frameworks
+% \item Reduced recommendation latency from 200ms to 50ms through optimization
+% \end{itemize}
+% }
+
+% Certifications & Awards
+\section{Certifications \& Awards}
+\begin{itemize}[leftmargin=15pt,noitemsep,topsep=0pt]
+[CERTIFICATIONS]
+% Example format:
+% \item \textbf{AWS Certified Solutions Architect - Professional} (2023)
+% \item \textbf{Google Cloud Professional Machine Learning Engineer} (2022)
+% \item \textbf{Employee of the Year Award} - TechCorp Inc. (2023)
+% \item \textbf{Best Innovation Award} - Company Hackathon Winner (2022)
+\end{itemize}
+
+% Publications & Research
+\section{Publications \& Speaking Engagements}
+[PUBLICATIONS]
+% Example format:
+% \begin{itemize}[leftmargin=15pt,noitemsep,topsep=0pt]
+% \item "Scalable Machine Learning in Production Environments", Tech Conference 2023
+% \item "Modern DevOps Practices for Enterprise Applications", Engineering Blog, 2023
+% \item Guest Speaker: "Career in Software Engineering", University Tech Fair, 2023
+% \end{itemize}
+
+% Additional Information
+\section{Additional Information}
+\begin{tabularx}{\textwidth}{lX}
+\textbf{\color{darkgray}Languages:} & English (Native), [OTHER_LANGUAGES] \\
+\textbf{\color{darkgray}Memberships:} & [PROFESSIONAL_MEMBERSHIPS] \\
+\textbf{\color{darkgray}Interests:} & [INTERESTS] \\
+\textbf{\color{darkgray}Volunteer:} & [VOLUNTEER_WORK] \\
+\end{tabularx}
+
+% Footer
+\vfill
+\begin{center}
+    \color{lightgray}\small
+    \textit{References available upon request}
+\end{center}
+
+\end{document}

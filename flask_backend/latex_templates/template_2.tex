@@ -1,0 +1,124 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages
+\usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{hyperref}
+
+% Define colors
+\definecolor{primarycolor}{RGB}{0,100,200}
+\definecolor{secondarycolor}{RGB}{100,100,100}
+
+% Hyperref setup
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primarycolor,
+    urlcolor=primarycolor,
+    pdftitle={[FIRST_NAME] [LAST_NAME] - CV}
+}
+
+% Title formatting
+\titleformat{\section}{\large\bfseries\color{primarycolor}}{}{0em}{}[\titlerule]
+\titleformat{\subsection}{\normalsize\bfseries}{}{0em}{}
+
+% Custom commands
+\newcommand{\cvheader}[6]{
+    \begin{center}
+        {\Huge\bfseries\color{primarycolor}#1 #2}\\[0.3cm]
+        {\large\color{secondarycolor}#3}\\[0.2cm]
+        #4 $\bullet$ #5 $\bullet$ #6
+    \end{center}
+    \vspace{0.3cm}
+}
+
+\newcommand{\cventry}[6]{
+    \textbf{#1} \hfill {\color{secondarycolor}#2}\\
+    \textit{#3} \hfill {\color{secondarycolor}#4}\\
+    #5
+    \vspace{0.2cm}
+}
+
+\newcommand{\cvproject}[4]{
+    \textbf{#1} \hfill {\color{secondarycolor}#2}\\
+    \textit{#3}\\
+    #4
+    \vspace{0.2cm}
+}
+
+% Remove page numbering
+\pagenumbering{gobble}
+
+\begin{document}
+
+% Header
+\cvheader{[FIRST_NAME]}{[LAST_NAME]}{[JOB_TITLE]}{[EMAIL]}{[PHONE]}{[LOCATION]}
+
+% Professional Summary
+\section{Professional Summary}
+[PROFESSIONAL_SUMMARY]
+
+% Experience
+\section{Professional Experience}
+[EXPERIENCE_ENTRIES]
+% Example format:
+% \cventry{Senior Software Engineer}{Jan 2023 - Present}{TechCorp Inc.}{San Francisco, CA}{
+% \begin{itemize}[leftmargin=*,noitemsep]
+% \item Led development of cloud-native applications serving 1M+ users
+% \item Implemented microservices architecture using Docker and Kubernetes
+% \item Reduced system latency by 40\% through performance optimization
+% \item Mentored team of 5 junior developers
+% \end{itemize}
+% }
+
+% Education
+\section{Education}
+[EDUCATION_ENTRIES]
+% Example format:
+% \cventry{Master of Science in Computer Science}{2020 - 2022}{Stanford University}{Stanford, CA}{
+% \textbf{GPA:} 3.8/4.0 $\bullet$ \textbf{Relevant Coursework:} Machine Learning, Distributed Systems, Algorithms
+% }
+
+% Technical Skills
+\section{Technical Skills}
+\begin{itemize}[leftmargin=*,noitemsep]
+    \item \textbf{Programming Languages:} [PROGRAMMING_LANGUAGES]
+    \item \textbf{Frameworks \& Libraries:} [FRAMEWORKS]
+    \item \textbf{Databases:} [DATABASES]
+    \item \textbf{Cloud \& DevOps:} [CLOUD_DEVOPS]
+    \item \textbf{Tools:} [TOOLS]
+\end{itemize}
+
+% Projects
+\section{Key Projects}
+[PROJECT_ENTRIES]
+% Example format:
+% \cvproject{E-commerce Platform}{2023}{React, Node.js, PostgreSQL, AWS}{
+% \begin{itemize}[leftmargin=*,noitemsep]
+% \item Built scalable e-commerce platform handling 10K+ concurrent users
+% \item Integrated payment processing with Stripe and PayPal
+% \item Implemented real-time inventory management system
+% \end{itemize}
+% }
+
+% Certifications
+\section{Certifications \& Achievements}
+[CERTIFICATIONS]
+% Example format:
+% \begin{itemize}[leftmargin=*,noitemsep]
+% \item AWS Certified Solutions Architect - Professional (2023)
+% \item Google Cloud Professional Developer (2022)
+% \item Winner, Company Innovation Hackathon (2023)
+% \end{itemize}
+
+% Additional Sections
+\section{Additional Information}
+\textbf{Languages:} English (Native), [OTHER_LANGUAGES]\\
+\textbf{Interests:} [INTERESTS]\\
+\textbf{LinkedIn:} \href{https://linkedin.com/in/[LINKEDIN]}{linkedin.com/in/[LINKEDIN]}\\
+\textbf{GitHub:} \href{https://github.com/[GITHUB]}{github.com/[GITHUB]}
+
+\end{document}
