@@ -45,6 +45,7 @@ This project demonstrates:
 
 ## 📁 Repository Structure
 
+<pre>
 README.md
 
 flask_backend/
@@ -228,3 +229,4 @@ morphcv/
         ├── LandingPage.tsx
         ├── MainAppPage.tsx
         └── SubscriptionPage.tsx
+</pre>
